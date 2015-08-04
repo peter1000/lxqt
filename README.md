@@ -1,4 +1,4 @@
-## Ports for constructing lxde
+## Ports for constructing lxqt
 
 Contributions are welcome
 
