@@ -1,0 +1,25 @@
+# Description : The lxqt-config package provides the LXQt system settings center.
+# URL: http://lxqt.org/
+# Packager: pierre at nutyx dot org
+# Depends on: liblxqt
+
+name=lxqt-config
+release=1
+version=0.9.0
+source=(http://downloads.lxqt.org/$name/$version/$name-$version.tar.xz)
+
+build() {
+cd $name-$version
+sed -e '/lxqtnotification.h/ i #include <QObject>' \
+    -i lxqt-config-monitor/monitor.h
+sed -e '/lxqtnotification.h/ i #include <QObject>' \
+    -i lxqt-config-monitor/monitor.h
+mkdir -v build 
+cd       build 
+cmake -DCMAKE_BUILD_TYPE=Release       \
+      -DCMAKE_INSTALL_PREFIX=/usr      \
+      ..  
+make
+make DESTDIR=$PKG install
+}
+

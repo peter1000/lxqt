@@ -1,0 +1,17 @@
+# Description : The chrpath modify the dynamic library load path (rpath and runpath) of compiled programs and libraries..
+# URL: http://directory.fsf.org/project/chrpath/
+# Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
+# Depends on: 
+
+name=chrpath
+release=1
+version=0.16
+source=(https://alioth.debian.org/frs/download.php/latestfile/813/chrpath-$version.tar.gz)
+
+build() {
+cd $name-$version
+./configure --prefix=/usr 
+make
+make DESTDIR=$PKG install
+}
+

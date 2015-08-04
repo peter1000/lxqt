@@ -1,0 +1,22 @@
+# Description :The pcmanfm-qt is a file manager and desktop icon manager (Qt port of pcmanfm and libfm).
+# URL: http://lxqt.org/
+# Packager: pierre at nutyx dot org
+# Depends on: libfm-extra liblxqt lxde-menu-data lxde-icon-theme
+
+name=pcmanfm-qt
+release=1
+version=0.9.0
+source=(http://downloads.lxqt.org/$name/$version/$name-$version.tar.xz)
+
+build() {
+cd $name-$version
+mkdir -v build 
+cd       build 
+cmake -DCMAKE_BUILD_TYPE=Release       \
+      -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_INSTALL_LIBDIR=lib       \
+      ..  
+make
+make DESTDIR=$PKG install
+}
+

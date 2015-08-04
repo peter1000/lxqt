@@ -1,0 +1,24 @@
+# Description : As the name suggests, the qtermwidget is a terminal widget for Qt.
+# URL: http://lxqt.org/
+# Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
+# Depends on: cmake qt5
+
+name=qtermwidget
+release=1
+version=0.6.0
+source=(https://github.com/qterminal/$name/releases/download/$version/$name-$version.tar.xz)
+
+build() {
+cd $name-$version
+mkdir -v build 
+cd       build 
+cmake -DCMAKE_BUILD_TYPE=Release  \
+      -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_INSTALL_LIBDIR=lib  \
+      -DBUILD_DESIGNER_PLUGIN=0   \
+      -DUSE_QT5=true              \
+      ..          
+make
+make DESTDIR=$PKG install
+}
+

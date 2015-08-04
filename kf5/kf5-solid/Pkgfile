@@ -1,0 +1,27 @@
+# Description : Library that provides a way of querying and interacting with hardware independently of the underlying operating system
+# URL: https://www.kde.org/
+# Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
+# Depends on: extra-cmake-modules qt5 udisks2 upower media-player-info  
+name=kf5-solid
+release=1
+
+_name=solid
+
+source=(http://download.kde.org/stable/frameworks/${version%.*}/${_name}-$version.tar.xz)
+
+build() {
+cd ${_name}-$version
+mkdir build
+cd    build
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_BUILD_TYPE=Release         \
+      -DLIB_INSTALL_DIR=lib              \
+      -DBUILD_TESTING=OFF                \
+      -DQML_INSTALL_DIR=lib/qt5/qml      \
+      -DECM_MKSPECS_INSTALL_DIR=/usr/share/qt5/mkspecs/modules \
+      -Wno-dev .. 
+
+make
+make DESTDIR=$PKG install
+}

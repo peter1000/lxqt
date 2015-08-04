@@ -1,0 +1,21 @@
+# Description : The lxqt-powermanagement package provides the power management module for LXQt.
+# URL: http://lxqt.org/
+# Packager: pierre at nutyx dot org
+# Depends on: hicolor-icon-theme liblxqt qt5 librsvg upower xdg-utils
+
+name=lxqt-powermanagement
+release=1
+version=0.9.0
+source=(http://downloads.lxqt.org/$name/$version/$name-$version.tar.xz)
+
+build() {
+cd $name-$version
+mkdir -v build 
+cd       build 
+cmake -DCMAKE_BUILD_TYPE=Release       \
+      -DCMAKE_INSTALL_PREFIX=/usr      \
+      ..  
+make
+make DESTDIR=$PKG install
+}
+

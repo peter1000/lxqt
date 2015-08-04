@@ -1,0 +1,25 @@
+# Description : Library that implements the framework for KDE parts, which are elaborate widgets with a user-interface defined in terms of actions (menu items, toolbar icons)
+# URL: https://www.kde.org/
+# Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
+# Depends on: extra-cmake-modules qt5 kf5-kio  
+name=kf5-kparts
+release=1
+
+_name=kparts
+source=(http://download.kde.org/stable/frameworks/${version%.*}/${_name}-$version.tar.xz)
+
+build() {
+cd ${_name}-$version
+mkdir build
+cd    build
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_BUILD_TYPE=Release         \
+      -DLIB_INSTALL_DIR=lib              \
+      -DBUILD_TESTING=OFF                \
+      -DECM_MKSPECS_INSTALL_DIR=/usr/share/qt5/mkspecs/modules \
+      -Wno-dev .. 
+
+make
+make DESTDIR=$PKG install
+}

@@ -1,0 +1,24 @@
+# Description : A Qt library that implements the Open Collaboration Services API
+# URL: https://www.kde.org/
+# Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
+# Depends on: cmake extra-cmake-modules qt5  
+name=kf5-attica
+release=1
+
+_name=attica
+
+source=(http://download.kde.org/stable/frameworks/${version%.*}/${_name}-$version.tar.xz)
+
+build() {
+        cd ${_name}-$version
+        mkdir build
+        cd build
+        cmake -DCMAKE_INSTALL_PREFIX=/usr \
+              -DCMAKE_BUILD_TYPE=Release         \
+              -DLIB_INSTALL_DIR=lib              \
+              -DBUILD_TESTING=OFF                \
+              -DECM_MKSPECS_INSTALL_DIR=/usr/share/qt5/mkspecs/modules \
+              -Wno-dev .. 
+	make
+        make DESTDIR=$PKG install
+}

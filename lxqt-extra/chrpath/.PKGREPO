@@ -1,0 +1,4 @@
+1437658747#.cards.tar#0.16#1#The chrpath modify the dynamic library load path (rpath and runpath) of compiled programs and libraries..#http://directory.fsf.org/project/chrpath/#n.a#pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
+2b99dc274f4a46380e549679958fd679#chrpath#x86_64
+2bf8d1d1ee345fc8a7915576f5649982#chrpath-0.16.tar.gz
+95577746697818ef2cfe718fcdbca146#Pkgfile

@@ -1,0 +1,25 @@
+# Description : The Bluez-Qt package contains a library used for communication with BlueZ system and session daemons. 
+# URL: https://www.kde.org/
+# Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
+# Depends on: bluez extra-cmake-modules qt5 
+name=kf5-bluez
+release=1
+version=5.11.0
+_name=bluez-qt
+source=( http://download.kde.org/stable/frameworks/${version%.*}/${_name}-$version.tar.xz)
+
+build() {
+cd ${_name}-$version
+mkdir build
+cd    build
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_BUILD_TYPE=Release         \
+      -DLIB_INSTALL_DIR=lib              \
+      -DBUILD_TESTING=OFF                \
+      -DQML_INSTALL_DIR=lib/qt5/qml      \
+      -DECM_MKSPECS_INSTALL_DIR=/usr/share/qt5/mkspecs/modules \
+      ..
+make
+make DESTDIR=$PKG install
+}

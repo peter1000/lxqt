@@ -1,0 +1,21 @@
+# Description :The lxqt-common package provides common files for LXQt.
+# URL: http://lxqt.org/
+# Packager: pierre at nutyx dot org
+# Depends on: liblxqt openbox xfce4-wm qt5 librsvg xdg-utils
+
+name=lxqt-common
+release=1
+version=0.9.1
+source=(http://downloads.lxqt.org/$name/$version/$name-$version.tar.xz)
+
+build() {
+cd $name-$version
+mkdir -v build 
+cd       build 
+cmake -DCMAKE_BUILD_TYPE=Release       \
+      -DCMAKE_INSTALL_PREFIX=/usr      \
+      ..  
+make
+make DESTDIR=$PKG install
+}
+

@@ -1,0 +1,21 @@
+# Description : The obconf-qt package is an OpenBox Qt based configuration tool.
+# URL: http://lxqt.org/
+# Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
+# Depends on: cmake openbox qt5
+
+name=obconf-qt
+release=1
+version=0.9.0.8
+source=(http://anduin.linuxfromscratch.org/sources/other/$name-$version.g1ce85f1.tar.xz)
+
+build() {
+cd $name-$version.g1ce85f1
+mkdir -v build 
+cd       build 
+cmake -DCMAKE_BUILD_TYPE=Release  \
+      -DCMAKE_INSTALL_PREFIX=/usr \
+      ..        
+make
+make DESTDIR=$PKG install
+}
+

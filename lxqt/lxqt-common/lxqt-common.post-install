@@ -1,0 +1,3 @@
+update-mime-database /usr/share/mime          
+xdg-icon-resource forceupdate --theme hicolor 
+update-desktop-database -q

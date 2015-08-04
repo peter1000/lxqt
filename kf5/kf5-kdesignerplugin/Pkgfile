@@ -1,0 +1,24 @@
+# Description : Plugins for Qt Designer that allow it to display the widgets provided by various KDE frameworks
+# URL: https://www.kde.org/
+# Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
+# Depends on: extra-cmake-modules qt5 kf5-kconfig kf5-kdoctools kf5-kcoreaddons kf5-attica kf5-kauth kf5-kbookmarks kf5-kcodecs kf5-kcompletion kf5-kconfigwidgets kf5-kdbusaddons kf5-kdewebkit kf5-kglobalaccel kf5-kguiaddons kf5-ki18n kf5-kio kf5-kitemviews kf5-kjobwidgets kf5-kplotting kf5-kservice kf5-ktextwidgets kf5-kwidgetsaddons kf5-kwindowsystem kf5-kxmlgui kf5-solid kf5-sonnet  
+name=kf5-kdesignerplugin
+release=1
+
+_name=kdesignerplugin
+source=(http://download.kde.org/stable/frameworks/${version%.*}/${_name}-$version.tar.xz)
+
+build() {
+cd ${_name}-$version
+mkdir build
+cd    build
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_BUILD_TYPE=Release         \
+      -DLIB_INSTALL_DIR=lib              \
+      -DBUILD_TESTING=OFF                \
+      -DQT_PLUGIN_INSTALL_DIR=lib/qt5/plugins \
+      -Wno-dev .. 
+
+make
+make DESTDIR=$PKG install
+}

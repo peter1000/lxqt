@@ -1,0 +1,24 @@
+# Description : The JuffEd package is a Qt based editor with support for multiple tabs.
+# URL: http://lxqt.org/
+# Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
+# Depends on: qscintilla-gpl desktop-file-utils enca
+
+name=juffed
+release=1
+version=0.10.r71
+source=(http://anduin.linuxfromscratch.org/sources/BLFS/conglomeration/$name/$name-$version.gc3c1a3f.tar.xz)
+
+build() {
+cd $name-$version.gc3c1a3f
+mkdir -v build 
+cd       build 
+cmake -DCMAKE_BUILD_TYPE=Release  \
+      -DCMAKE_INSTALL_PREFIX=/usr \
+      -DLIB_INSTALL_DIR=/usr/lib  \
+      -DBUILD_TERMINAL=ON         \
+      -DUSE_QT5=true              \
+      ..        
+make
+make DESTDIR=$PKG install
+}
+

@@ -1,0 +1,30 @@
+# Description : The lximage-qt package contains a lightweight image viewer and screenshot program.
+# URL: http://lxqt.org/
+# Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
+# Depends on: libexif pcmanfm-qt
+
+name=lximage-qt
+release=1
+version=0.4.0
+source=(http://downloads.lxqt.org/$name/$version/$name-$version.tar.xz)
+
+build() {
+cd $name-$version
+sed -i 's/1%/%1/' src/translations/lximage-qt_pt_BR.ts 
+
+sed -i 's/Utility;//' data/lximage-qt.desktop.in       
+
+mkdir -v build 
+cd       build 
+cmake -DCMAKE_BUILD_TYPE=Release  \
+      -DCMAKE_INSTALL_PREFIX=/usr \
+      ..        
+make
+make DESTDIR=$PKG install
+ln -svf /opt/lxqt/share/applications/lximage-qt.desktop \
+        $PKG/usr/share/applications 
+
+ln -svf /opt/lxqt/share/applications/lximage-qt-screenshot.desktop \
+        $PKG/usr/share/applications
+}
+

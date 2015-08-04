@@ -1,0 +1,28 @@
+# Description : The lxqt-notificationd package is the LXQt notification daemon.
+# URL: http://lxqt.org/
+# Packager: pierre at nutyx dot org
+# Depends on:  liblxqt lxqt-common
+
+name=lxqt-notificationd
+release=1
+version=0.9.0
+source=(http://downloads.lxqt.org/$name/$version/$name-$version.tar.xz)
+
+build() {
+cd $name-$version
+sed -e '/QDebug/ i #include <QObject>' \
+    -e 's:<KF5/KWindowSystem/:<:'      \
+    -i src/notification.cpp     
+
+sed -e '/LXQt\/Notification/ i  #include <QObject>' \
+    -i config/basicsettings.cpp 
+
+mkdir build
+cd    build
+cmake -DCMAKE_BUILD_TYPE=Release       \
+      -DCMAKE_INSTALL_PREFIX=/usr      \
+      ..    
+make
+make DESTDIR=$PKG install
+}
+

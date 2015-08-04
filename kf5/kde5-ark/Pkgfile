@@ -1,0 +1,23 @@
+# Description : The Ark package contains an archiving utility for the KDE Plasma Desktop
+# URL: https://www.kde.org/
+# Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
+# Depends on: kf5-kdelibs4support kf5-khtml kf5-kpty libarchive 
+name=kde5-ark
+release=1
+version=15.04.3
+
+source=(http://download.kde.org/stable/applications/$version/src/kate-$version.tar.xz)
+
+build() {
+cd ark-$version
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr        \
+      -DCMAKE_BUILD_TYPE=Release         \
+      -DLIB_INSTALL_DIR=lib              \
+      -DBUILD_TESTING=OFF                \
+      -DQT_PLUGIN_INSTALL_DIR=lib/qt5/plugins \
+      ..
+make
+make DESTDIR=$PKG install
+}

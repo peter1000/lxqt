@@ -1,0 +1,10 @@
+1437660431#.cards.tar#3.6#1#Converts files between various character sets and usages.#http://recode.progiciels-bpi.ca/index.html#n.a#pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
+b77d82d933918a2bad49ebf0de79958d#recode#x86_64
+5ce0fef074147782c9e8f3623ac0b5ba#recode.fr#any
+fca7484ba332c8ad59eb02334883cd92#recode-3.6-as-if.patch
+47b62d7031d208180552174f9e223e9d#recode-3.6-gcc43.patch
+eb602e80a24b5448604bfebeacc55304#recode-3.6-gettextfix.diff
+43e64410a8390c04c060dc46a44031a5#recode.post-install
+6cf24b62dd8469dda7061010ef1d8513#recode.pre-install
+3716ae269074e31add3d29387ff09438#recode_3.6-17.diff.gz
+acabdfabe57a9e01b1320be0b64a98b1#Pkgfile
