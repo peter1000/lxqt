@@ -9,6 +9,7 @@ version=1.8.6
 source=(http://anduin.linuxfromscratch.org/sources/BLFS/conglomeration/$name/$name-$version.tar.gz)
 
 build() {
+source setqt5
 cd $name-$version
 sed -e '/qtlocalpeer/ i #include <QDataStream>' \
     -i src/lib/3rdparty/qtsingleapplication/qtlocalpeer.cpp 
@@ -22,6 +23,6 @@ export QUPZILLA_PREFIX=/usr \
        USE_WEBGL=true       
 qmake        
 make
-make DESTDIR=$PKG install
+make INSTALL_ROOT=$PKG install
 }
 
