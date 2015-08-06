@@ -1,12 +1,12 @@
 # Description : The lxqt-runner package provides a tool used to launch programs quickly by typing their names.
 # URL: http://lxqt.org/
 # Packager: pierre at nutyx dot org
-# Depends on:  kf5-kwindowsystem kf5 lxqt-common lxqt-globalkeys menu-cache
+# Depends on:  kf5-kwindowsystem lxqt-common lxqt-globalkeys menu-cache
 
 name=lxqt-runner
 release=1
 version=0.9.0
-source=(http://downloads.lxqt.org/$name/$version/$name-$version.tar.xz)
+source=(http://downloads.lxqt.org/lxqt/0.9.1/$name-$version.tar.xz)
 
 build() {
 cd $name-$version
