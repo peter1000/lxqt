@@ -1,7 +1,7 @@
 # Description :The liblxqt is the core utility library for all LXQt components.
 # URL: http://lxqt.org/
 # Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
-# Depends on: kf5 libqtxdg
+# Depends on: kf5-kwindowsystem libqtxdg
 
 name=liblxqt
 release=2
