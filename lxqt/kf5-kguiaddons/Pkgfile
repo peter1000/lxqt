@@ -1,0 +1,25 @@
+# Description : Parts of framework 5
+# URL: https://www.kde.org/
+# Packager: pierre at nutyx dot org
+# Depends on: kf5-extra-cmake-modules
+
+_name=kguiaddons
+release=2
+version=5.12.0
+
+source=(http://download.kde.org/stable/frameworks/5.12/${_name}-$version.tar.xz)
+build() {
+cd ${_name}-$version
+mkdir build
+cd    build
+cmake -DCMAKE_INSTALL_PREFIX=/usr             \
+      -DCMAKE_BUILD_TYPE=Release              \
+      -DLIB_INSTALL_DIR=lib                   \
+      -DBUILD_TESTING=OFF                     \
+      -DQT_PLUGIN_INSTALL_DIR=lib/qt5/plugins \
+      -DQML_INSTALL_DIR=lib/qt5/qml           \
+      -Wno-dev ..
+make
+make DESTDIR=$PKG install
+}
+
