@@ -11,6 +11,7 @@ source=(http://downloads.sourceforge.net/pyqt/${_name}-$version.tar.gz
 http://www.linuxfromscratch.org/patches/blfs/svn/${_name}-$version-fixes-1.patch)
 
 build() {
+source setqt5
 cd ${_name}-$version
 patch -Np1 -i ../${_name}-$version-fixes-1.patch
 cd Qt4Qt5             
