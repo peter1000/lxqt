@@ -10,7 +10,7 @@ source=(http://downloads.lxqt.org/lxqt/0.9.1/$name-$version.tar.xz)
 
 build() {
 cd $name-$version
-sed -e '/lxqtnotification.h/ i #include <QObject>' 
+sed -e '/lxqtnotification.h/ i #include <QObject>' \
     -i lxqtnotification.cpp
 mkdir -v build 
 cd       build 
