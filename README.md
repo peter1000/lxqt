@@ -4,60 +4,66 @@ Contributions are welcome
 
 ### How to test this git:
 
-#### 1. Clone it
+#### 1. Clone it in your home directory
 
     # git clone git://github.com/NuTyX/lxqt.git
 
-#### 2. adjust /etc/cards.conf by adding the ports directory. By default it should be:
+#### 2. Get the script to Install a bare houaphan NuTyX:
 
-      dir /var/lib/pkg/saravane/lxqt
+    # export LFS=/mnt/lfs
+    # mkdir $LFS
+    # wget http://downloads.nutyx.org/install-houaphan{,.md5sum}
+    # wget http://downloads.nutyx.org/enter-chroot{,.md5sum}
 
+#### 3. Check the validity of the scripts:
 
-#### 3. Run the script a first time (in root)
+    # md5sum -c install-houaphan.md5sum
 
-    # bash lxqt/scripts/lxqt
+   install-houaphan: OK
 
-This will populate all the directories 
+    # md5sum -c enter-chroot.md5sum
 
-#### 4. build the ports
+   enter-chroot: OK
 
-##### 4.1 With the command "cards depcreate"
-    # cards depcreate lxqt
+#### 4. Install a bare NuTyX
 
+    # bash install-houaphan
 
-##### 4.2 With the command "cards create -r" 
-This method means you have ALL the binaries of the base,console and graphic collection. You want to build like on the bot.
+#### 5. Enter in the chroot NuTyX
 
-###### 4.2.1 build a list of package to build by running the script a second time
+    # bash enter-chroot
 
-    # bash lxqt/scritps/lxqt|cut -d " " -f1 > list
+#### 6. As it says review and adjust cards.conf to your needs.
 
-###### 4.2.2 build each package per level
-
-    # for i in `cat list`
-    # do
-    #   cards level|grep /$i$|grep  ^0:
-    # done
-
-It will print a list of package to be build from level 0, if not start do it again with next level
-
-    # for i in `cat list`
-    # do
-    #  cards level|grep /$i$|grep  ^1:
-    # done
-
-and so on. Exemple for level 3:
-
-    2: /lxqt-extra/libfm-extra
+    # check
+    # get vim
+    # vim /etc/cards.conf
 
 
-Time to build:
+#### 7. In your chroot Make the directory where the git copy will comes
 
-    # for i in libfm-extra
-    # do
-    #   cards create -r $i||break
-    # done
+    # mkdir /root/lxqt
 
-It will break at the first failure
+#### 8. Exit and mount your git project (asume below the user is 'tnut') adapt to yours
+
+    # mount -o bind /home/tnut/lxqt /mnt/lfs/root/lxqt
+
+#### 9. Enter again in your chroot
+
+    # bash enter-chroot
+    # cd /root/lxqt
+
+#### 10. you can now try the following command:
+
+    # bash script/lxqt
+
+It will print a help included point 1,7 and 8 above. Note that it's even possible to get the available binaries from the mirror.
+
+
+#### 11. If everythin OK, check with cards level whats new
+
+    # cards level
+
+#### 12. TO BE CONTINUE ...
 
 Have fun :)
