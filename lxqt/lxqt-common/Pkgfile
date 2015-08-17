@@ -6,7 +6,7 @@
 name=lxqt-common
 release=2
 version=0.9.1
-source=(http://downloads.lxqt.org/lxqt/$version/$name-$version.tar.xz)
+source=(https://github.com/lxde/lxqt-common/archive/$version.tar.gz)
 
 build() {
 cd $name-$version
