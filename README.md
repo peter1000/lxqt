@@ -83,7 +83,7 @@ It will explain you what's a collection, a git, a port, the tools around 'cards'
 
  then you are ready to compile the 'lxqt-extra' collection
 
-    # cd /root/lxqt-extra
+    # cd /root/lxqt
     # bash scripts/lxqt-extra -s
     # bash scripts/lxqt-extra -a 
 
