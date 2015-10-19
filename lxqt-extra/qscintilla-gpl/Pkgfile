@@ -1,7 +1,7 @@
 # Description : QScintilla is a port to Qt of Scintilla.
 # URL: http://lxqt.org/
 # Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
-# Depends on: chrpath qt5
+# Depends on: qt5
 
 name=qscintilla-gpl
 _name=QScintilla-gpl
