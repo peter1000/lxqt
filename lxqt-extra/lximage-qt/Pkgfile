@@ -4,7 +4,7 @@
 # Depends on: libexif pcmanfm-qt
 
 name=lximage-qt
-release=1
+release=2
 version=0.4.0
 source=(http://downloads.lxqt.org/$name/$version/$name-$version.tar.xz)
 
@@ -21,10 +21,4 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
       ..        
 make
 make DESTDIR=$PKG install
-ln -svf /opt/lxqt/share/applications/lximage-qt.desktop \
-        $PKG/usr/share/applications 
-
-ln -svf /opt/lxqt/share/applications/lximage-qt-screenshot.desktop \
-        $PKG/usr/share/applications
 }
-
