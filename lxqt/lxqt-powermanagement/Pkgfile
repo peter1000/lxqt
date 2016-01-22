@@ -1,7 +1,7 @@
 # Description : The lxqt-powermanagement package provides the power management module for LXQt.
 # URL: http://lxqt.org/
 # Packager: pierre at nutyx dot org
-# Depends on: hicolor-icon-theme liblxqt qt5 librsvg upower xdg-utils
+# Depends on: kf5-solid hicolor-icon-theme liblxqt qt5 librsvg upower xdg-utils
 
 name=lxqt-powermanagement
 release=1
