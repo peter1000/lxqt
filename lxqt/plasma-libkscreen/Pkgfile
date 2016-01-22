@@ -3,7 +3,7 @@
 # Packager: pierre at nutyx dot org
 # Depends on: cmake kf5-extra-cmake-modules qt5 
 _name=libkscreen
-version=5.4.2
+version=5.5.3
 release=1
 source=(http://download.kde.org/stable/plasma/$version/${_name}-$version.tar.xz)
 build() {
