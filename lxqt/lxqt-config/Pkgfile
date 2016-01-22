@@ -1,7 +1,7 @@
 # Description : The lxqt-config package provides the LXQt system settings center.
 # URL: http://lxqt.org/
 # Packager: pierre at nutyx dot org
-# Depends on: liblxqt
+# Depends on: liblxqt plasma-libkscreen
 
 name=lxqt-config
 release=1
