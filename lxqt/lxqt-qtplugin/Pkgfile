@@ -1,7 +1,7 @@
 # Description : The lxqt-qtplugin package provides an LXQt Qt platform integration plugin.
 # URL: http://lxqt.org/
 # Packager: pierre at nutyx dot org
-# Depends on: liblxqt
+# Depends on: liblxqt libdbusmenu-qt5
 
 name=lxqt-qtplugin
 release=1
