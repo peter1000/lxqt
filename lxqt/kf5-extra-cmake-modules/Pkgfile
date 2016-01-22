@@ -3,9 +3,9 @@
 # Packager: pierre at nutyx dot org
 # Depends on: cmake 
 _name=extra-cmake-modules
-version=5.12.0
-release=2
-source=(http://download.kde.org/stable/frameworks/5.12/${_name}-$version.tar.xz)
+version=5.18.0
+release=1
+source=(http://download.kde.org/stable/frameworks/${version:0:4}/${_name}-$version.tar.xz)
 build() {
 cd ${_name}-$version
 mkdir build
