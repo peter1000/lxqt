@@ -1,7 +1,7 @@
 # Description : The lxqt-panel package contains a lightweight X11 desktop panel.
 # URL: http://lxqt.org/
 # Packager: pierre at nutyx dot org
-# Depends on: kf5-kguiaddons lxqt-globalkeys liblxqt liblxqt-mount lxde-menu-data menu-cache libsysstat
+# Depends on: libdbusmenu-qt5 kf5-solid kf5-kguiaddons lxqt-globalkeys liblxqt liblxqt-mount lxde-menu-data menu-cache libsysstat
 
 name=lxqt-panel
 release=1
