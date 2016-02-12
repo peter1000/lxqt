@@ -3,6 +3,7 @@
 # Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
 # Depends on: qtermwidget
 
+description="Qt widget based terminal emulator for Qt with support for multiple tabs"
 name=qterminal
 release=1
 version=0.6.0
