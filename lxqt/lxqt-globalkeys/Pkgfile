@@ -3,6 +3,7 @@
 # Packager: pierre at nutyx dot org
 # Depends on:  liblxqt 
 
+description="Daemon used to register global keyboard shortcuts and a key shortcut GUI editor."
 name=lxqt-globalkeys
 release=1
 version=0.10.0
