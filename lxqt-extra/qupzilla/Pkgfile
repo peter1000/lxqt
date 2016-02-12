@@ -3,6 +3,7 @@
 # Packager: pierre at nutyx dot org, fanch at nutyx dot org, tnut at nutyx dot org
 # Depends on: cmake openssl qt5
 
+description="Fast, feature-rich and lightweight QtWebKit based browser"
 name=qupzilla
 release=1
 version=1.8.8
