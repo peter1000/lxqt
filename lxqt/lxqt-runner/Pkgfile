@@ -3,6 +3,7 @@
 # Packager: pierre at nutyx dot org
 # Depends on:  kf5-kwindowsystem lxqt-common lxqt-globalkeys menu-cache
 
+description="Tool used to launch programs quickly by typing their names."
 name=lxqt-runner
 release=2
 version=0.10.0
